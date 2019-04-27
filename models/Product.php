@@ -21,7 +21,7 @@ class Product
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'SELECT id, name, price, is_new FROM product '
+        $sql = 'SELECT id, name, price, brand, is_new FROM product '
                 . 'WHERE status = "1" ORDER BY id DESC '
                 . 'LIMIT :count';
 
@@ -41,6 +41,7 @@ class Product
         while ($row = $result->fetch()) {
             $productsList[$i]['id'] = $row['id'];
             $productsList[$i]['name'] = $row['name'];
+            $productsList[$i]['brand']=$row['brand'];
             $productsList[$i]['price'] = $row['price'];
             $productsList[$i]['is_new'] = $row['is_new'];
             $i++;
@@ -64,7 +65,7 @@ class Product
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'SELECT id, name, price, is_new FROM product '
+        $sql = 'SELECT id, name, brand, price, is_new FROM product '
                 . 'WHERE status = 1 AND category_id = :category_id '
                 . 'ORDER BY id ASC LIMIT :limit OFFSET :offset';
 
@@ -83,6 +84,7 @@ class Product
         while ($row = $result->fetch()) {
             $products[$i]['id'] = $row['id'];
             $products[$i]['name'] = $row['name'];
+            $products[$i]['brand']=$row['brand'];
             $products[$i]['price'] = $row['price'];
             $products[$i]['is_new'] = $row['is_new'];
             $i++;
@@ -115,6 +117,23 @@ class Product
 
         // Получение и возврат результатов
         return $result->fetch();
+    }
+    public static function getSongsById($id)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+        $idd=$id;
+        // Получение и возврат результатов
+        $result = $db->query("SELECT song.name, song.id FROM song INNER join product_song"
+            ." ON song.id=product_song.song_id where product_song.product_id=($idd);");
+        $songs = array();
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $songs[$i]['name'] = $row['name'];
+            $songs[$i]['id'] = $row['id'];
+            $i++;
+        }
+        return $songs;
     }
 
     /**

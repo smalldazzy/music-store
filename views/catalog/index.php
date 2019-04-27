@@ -32,11 +32,13 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="<?php echo Product::getImage($product['id']); ?>" alt="" />
-                                        <h2>$<?php echo $product['price'];?></h2>
+                                        <h2><?php echo $product['price'];?> BYN</h2>
                                         <p>
                                             <a href="/product/<?php echo $product['id'];?>">
                                                 <?php echo $product['name'];?>
+                                                by <strong><?php echo $product['brand'];?></strong>
                                             </a>
+
                                         </p>
                                         
                                         <a href="#" data-id="<?php echo $product['id'];?>"

@@ -32,10 +32,11 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="<?php echo Product::getImage($product['id']); ?>" alt="" />
-                                        <h2>$<?php echo $product['price']; ?></h2>
+                                        <h2><?php echo $product['price']; ?> BYN</h2>
                                         <p>
                                             <a href="/product/<?php echo $product['id']; ?>">
                                                 <?php echo $product['name']; ?>
+                                                by <strong><?php echo $product['brand'];?></strong>
                                             </a>
                                         </p>
                                         <a href="#" class="btn btn-default add-to-cart" data-id="<?php echo $product['id']; ?>"><i class="fa fa-shopping-cart"></i>В корзину</a>
@@ -69,9 +70,9 @@
                                     <div class="single-products">
                                         <div class="productinfo text-center">
                                             <img src="<?php echo Product::getImage($sliderItem['id']); ?>" alt="" />
-                                            <h2>$<?php echo $sliderItem['price']; ?></h2>
+                                            <h2><?php echo $sliderItem['price']; ?> BYN</h2>
                                             <a href="/product/<?php echo $sliderItem['id']; ?>">
-                                                <?php echo $product['name']; ?>
+                                                <?php echo $sliderItem['name']; ?>
                                             </a>
                                             <br/><br/>
                                             <a href="#" class="btn btn-default add-to-cart" data-id="<?php echo $sliderItem['id']; ?>"><i class="fa fa-shopping-cart"></i>В корзину</a>

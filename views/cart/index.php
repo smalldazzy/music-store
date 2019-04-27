@@ -32,7 +32,7 @@
                             <tr>
                                 <th>Код товара</th>
                                 <th>Название</th>
-                                <th>Стомость, $</th>
+                                <th>Стомость, BYN</th>
                                 <th>Количество, шт</th>
                                 <th>Удалить</th>
                             </tr>
@@ -54,7 +54,7 @@
                                 </tr>
                             <?php endforeach; ?>
                                 <tr>
-                                    <td colspan="4">Общая стоимость, $:</td>
+                                    <td colspan="4">Общая стоимость, BYN:</td>
                                     <td><?php echo $totalPrice;?></td>
                                 </tr>
                             

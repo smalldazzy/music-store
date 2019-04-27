@@ -39,21 +39,26 @@
 
                                 <h2><?php echo $product['name']; ?></h2>
                                 <p>Код товара: <?php echo $product['code']; ?></p>
+                                <p><b>Исполнитель:</b> <?php echo $product['brand']; ?></p>
+                                <p><b>Наличие:</b> <?php echo Product::getAvailabilityText($product['availability']); ?></p>
+                                <p><b>Категория:</b> <?php echo ($product['availability']); ?></p>
                                 <span>
-                                    <span>US $<?php echo $product['price']; ?></span>
+                                    <span><?php echo $product['price']; ?> BYN</span>
                                     <a href="#" data-id="<?php echo $product['id']; ?>"
                                        class="btn btn-default add-to-cart">
                                         <i class="fa fa-shopping-cart"></i>В корзину
                                     </a>
                                 </span>
-                                <p><b>Наличие:</b> <?php echo Product::getAvailabilityText($product['availability']); ?></p>
-                                <p><b>Производитель:</b> <?php echo $product['brand']; ?></p>
+
                             </div><!--/product-information-->
                         </div>
                     </div>
                     <div class="row">                                
                         <div class="col-sm-12">
                             <br/>
+                            <?php foreach ($songs as $i=>$song_item): ?>
+                                <p><?php echo ($i+1).'. '.$song_item['name']; ?></p>
+                            <?php endforeach; ?>
                             <h5>Описание товара</h5>
                             <?php echo $product['description']; ?>
                         </div>

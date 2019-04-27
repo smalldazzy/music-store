@@ -40,7 +40,7 @@ class Category
         $db = Db::getConnection();
 
         // Запрос к БД
-        $result = $db->query('SELECT id, name, sort_order, status FROM category ORDER BY sort_order ASC');
+        $result = $db->query('SELECT id, name, status FROM category ORDER BY sort_order ASC');
 
         // Получение и возврат результатов
         $categoryList = array();
