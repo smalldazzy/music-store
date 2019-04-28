@@ -56,9 +56,32 @@
                     <div class="row">                                
                         <div class="col-sm-12">
                             <br/>
-                            <?php foreach ($songs as $i=>$song_item): ?>
-                                <p><?php echo ($i+1).'. '.$song_item['name']; ?></p>
-                            <?php endforeach; ?>
+                            <h5>Треки</h5>
+                            <table class="tracks">
+                                <thead>
+                                    <tr>
+                                        <td>№</td>
+                                        <td>Название</td>
+                                        <td>Длительность</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($songs as $i=>$song_item): ?>
+                                    <tr>
+                                    <td>
+                                        <?php echo ($i+1).'.'; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $song_item['name']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $song_item['duration']; ?>
+                                    </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+
                             <h5>Описание товара</h5>
                             <?php echo $product['description']; ?>
                         </div>

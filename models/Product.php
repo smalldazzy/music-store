@@ -124,13 +124,14 @@ class Product
         $db = Db::getConnection();
         $idd=$id;
         // Получение и возврат результатов
-        $result = $db->query("SELECT song.name, song.id FROM song INNER join product_song"
+        $result = $db->query("SELECT song.name, song.id, song.duration FROM song INNER join product_song"
             ." ON song.id=product_song.song_id where product_song.product_id=($idd);");
         $songs = array();
         $i = 0;
         while ($row = $result->fetch()) {
             $songs[$i]['name'] = $row['name'];
             $songs[$i]['id'] = $row['id'];
+            $songs[$i]['duration'] = $row['duration'];
             $i++;
         }
         return $songs;
