@@ -35,7 +35,7 @@
                             <div class="col-sm-6">
                                 <div class="contactinfo">
                                     <h5>
-                                        <a href="/admin"><i class="fa fa-edit"></i> Админпанель</a>
+                                        <a href="/admin"><i class="fa fa-edit"></i> Панель администратора</a>
                                     </h5>
                                 </div>
                             </div>

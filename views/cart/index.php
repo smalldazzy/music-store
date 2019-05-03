@@ -33,7 +33,7 @@
                                 <th>Код товара</th>
                                 <th>Название</th>
                                 <th>Стомость, BYN</th>
-                                <th>Количество, шт</th>
+<!--                                <th>Количество, шт</th>-->
                                 <th>Удалить</th>
                             </tr>
                             <?php foreach ($products as $product): ?>
@@ -45,7 +45,7 @@
                                         </a>
                                     </td>
                                     <td><?php echo $product['price'];?></td>
-                                    <td><?php echo $productsInCart[$product['id']];?></td> 
+<!--                                    <td>--><?php //echo $productsInCart[$product['id']];?><!--</td> -->
                                     <td>
                                         <a href="/cart/delete/<?php echo $product['id'];?>">
                                             <i class="fa fa-times"></i>
@@ -54,7 +54,7 @@
                                 </tr>
                             <?php endforeach; ?>
                                 <tr>
-                                    <td colspan="4">Общая стоимость, BYN:</td>
+                                    <td colspan="2">Общая стоимость, BYN:</td>
                                     <td><?php echo $totalPrice;?></td>
                                 </tr>
                             

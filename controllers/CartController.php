@@ -142,14 +142,42 @@ class CartController
                 // Если ошибок нет
                 // Сохраняем заказ в базе данных
                 $result = Order::save($userName, $userPhone, $userComment, $userId, $productsInCart);
+                //prin
+                $pdf = new OutputController();
+                $pdf->AliasNbPages();
+                $pdf->AddPage();
+                $pdf->SetFont('Times','',12);
+//                foreach ($productsInCart as $item):
+//                        echo $productsInCart[$item['id']];
+////                    $pdf->Cell(0,10, $item[0].$i,0,1);
+//                endforeach;
+                $outprod = Product::getProdustsByIds(array_keys($productsInCart));
+                $pdf->Cell(0,10,$userName,0,1);
+                $pdf->Cell(0,10,$userPhone,0,1);
+                $pdf->Cell(0,10,$userComment,0,1);
+                foreach ($outprod as $item):
+//                    echo $item['name'].' '.$item['price'];
+                    $pdf->Cell(0,10,$item['name'].' '.$item['price'].' BYN',0,1);
+                endforeach;
+                $pdf->Cell(0,10,'Total price '.$totalPrice,0,1);
+//                for($i=1;$i<=40;$i++)
+//                    $pdf->Cell(0,10,'Printing line number '.$i,0,1);
 
-                if ($result) {
+//                $pdf->Cell(0,10,$productsInCart.$i,0,1);
+
+//                open
+                $pdf->Output();
+                //download
+//                $pdf->Output('D');
+
+                 if ($result) {
+//                     $pdf->Output('D');
                     // Если заказ успешно сохранен
                     // Оповещаем администратора о новом заказе по почте                
-                    $adminEmail = 'php.start@mail.ru';
-                    $message = '<a href="http://digital-mafia.net/admin/orders">Список заказов</a>';
-                    $subject = 'Новый заказ!';
-                    mail($adminEmail, $subject, $message);
+//                    $adminEmail = 'php.start@mail.ru';
+//                    $message = '<a href="http://digital-mafia.net/admin/orders">Список заказов</a>';
+//                    $subject = 'Новый заказ!';
+//                    mail($adminEmail, $subject, $message);
 
                     // Очищаем корзину
                     Cart::clear();

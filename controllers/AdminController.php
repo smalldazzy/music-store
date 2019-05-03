@@ -18,5 +18,9 @@ class AdminController extends AdminBase
         require_once(ROOT . '/views/admin/index.php');
         return true;
     }
+    public function actionJson (){
+        self::checkAdmin();
+        require_once (ROOT.'/views/admin_json/view.php');
+    }
 
 }

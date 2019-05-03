@@ -29,7 +29,7 @@ class Cart
         // Проверяем есть ли уже такой товар в корзине 
         if (array_key_exists($id, $productsInCart)) {
             // Если такой товар есть в корзине, но был добавлен еще раз, увеличим количество на 1
-            $productsInCart[$id] ++;
+//            $productsInCart[$id] ++;
         } else {
             // Если нет, добавляем id нового товара в корзину с количеством 1
             $productsInCart[$id] = 1;

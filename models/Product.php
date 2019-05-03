@@ -136,6 +136,22 @@ class Product
         }
         return $songs;
     }
+    public static function getCategoryById($id)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+        $idd=$id;
+        // Получение и возврат результатов
+        $result = $db->query("SELECT category.name FROM category INNER join product"
+            ." ON category.id=product.category_id where product.id=($idd);");
+        $categ = array();
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $categ[$i]['name'] = $row['name'];
+            $i++;
+        }
+        return $categ;
+    }
 
     /**
      * Возвращаем количество товаров в указанной категории

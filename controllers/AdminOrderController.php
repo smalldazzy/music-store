@@ -17,10 +17,13 @@ class AdminOrderController extends AdminBase
 
         // Получаем список заказов
         $ordersList = Order::getOrdersList();
-
+        $jsonorders = json_encode($ordersList);
         // Подключаем вид
         require_once(ROOT . '/views/admin_order/index.php');
         return true;
+    }
+    public function  retjson(){
+        return $jsonorders;
     }
 
     /**

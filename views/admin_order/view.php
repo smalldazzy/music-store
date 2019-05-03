@@ -70,7 +70,7 @@
                         <td><?php echo $product['id']; ?></td>
                         <td><?php echo $product['code']; ?></td>
                         <td><?php echo $product['name']; ?></td>
-                        <td>$<?php echo $product['price']; ?></td>
+                        <td><?php echo $product['price']; ?> BYN</td>
                         <td><?php echo $productsQuantity[$product['id']]; ?></td>
                     </tr>
                 <?php endforeach; ?>

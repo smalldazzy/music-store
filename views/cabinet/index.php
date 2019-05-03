@@ -9,6 +9,9 @@
             <h4>Привет, <?php echo $user['name'];?>!</h4>
             <ul>
                 <li><a href="/cabinet/edit">Редактировать данные</a></li>
+                <?php if (AdminBase::checkAdmin()==true): ?>
+                    <li><a href="/admin">Панель администратора</a></li>
+                <?php endif; ?>
                 <!--<li><a href="/cabinet/history">Список покупок</a></li>-->
             </ul>
             
